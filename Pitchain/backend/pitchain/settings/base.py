@@ -40,6 +40,7 @@ THIRD_PARTY_APPS = [
     'rest_framework_simplejwt',
     'corsheaders',
     'django_filters',
+    'drf_spectacular',
 ]
 
 LOCAL_APPS = [
@@ -148,6 +149,7 @@ REST_FRAMEWORK = {
     'DEFAULT_RENDERER_CLASSES': [
         'rest_framework.renderers.JSONRenderer',
     ],
+    'DEFAULT_SCHEMA_CLASS': 'drf_spectacular.openapi.AutoSchema',
     'EXCEPTION_HANDLER': 'rest_framework.views.exception_handler',
 }
 
@@ -234,4 +236,13 @@ LOGGING = {
 }
 
 print("[settings] LOGGING       = pitchain logger ready | SQL=WARNING")
+
+# ─── Swagger / OpenAPI ────────────────────────────────────────────────────────
+SPECTACULAR_SETTINGS = {
+    'TITLE': 'PitChain API',
+    'DESCRIPTION': 'Decentralized Web3 fantasy cricket platform on Base Sepolia',
+    'VERSION': '1.0.0',
+    'SERVE_INCLUDE_SCHEMA': False,
+}
+
 print("=" * 60)
