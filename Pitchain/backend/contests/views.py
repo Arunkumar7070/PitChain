@@ -7,7 +7,7 @@ from .serializers import ContestSerializer, UserEntrySerializer
 
 
 class ContestViewSet(viewsets.ReadOnlyModelViewSet):
-    queryset = Contest.objects.all().order_by('-match_date')
+    queryset = Contest.objects.all().order_by('-match__match_date')
     serializer_class = ContestSerializer
     permission_classes = [AllowAny]
     filterset_fields = ['status']

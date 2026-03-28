@@ -4,6 +4,10 @@ from .models import Contest, UserEntry
 
 class ContestSerializer(serializers.ModelSerializer):
     participant_count = serializers.ReadOnlyField()
+    match_name  = serializers.CharField(source='match.match_name', read_only=True)
+    team_a      = serializers.CharField(source='match.team_a', read_only=True)
+    team_b      = serializers.CharField(source='match.team_b', read_only=True)
+    match_date  = serializers.DateTimeField(source='match.match_date', read_only=True)
 
     class Meta:
         model = Contest
